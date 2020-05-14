@@ -36,7 +36,6 @@ async function updateGist(stats) {
         .replace(/hrs/g, "h")
         .replace(/mins/g, "m")
         .padEnd(9),
-      ,
       generateBarChart(percent, 16),
       String(percent.toFixed(1)).padStart(5) + "%"
     ];

@@ -864,7 +864,6 @@ module.exports = (function(e, t) {
             .replace(/hrs/g, "h")
             .replace(/mins/g, "m")
             .padEnd(9),
-          ,
           generateBarChart(s, 16),
           String(s.toFixed(1)).padStart(5) + "%"
         ];
@@ -2657,11 +2656,11 @@ module.exports = (function(e, t) {
       var a =
         cmp(this.semver, "<", e.semver, t) &&
         (this.operator === ">=" || this.operator === ">") &&
-        (e.operator === "<=" || e.operator === "<");
+          (e.operator === "<=" || e.operator === "<");
       var u =
         cmp(this.semver, ">", e.semver, t) &&
         (this.operator === "<=" || this.operator === "<") &&
-        (e.operator === ">=" || e.operator === ">");
+          (e.operator === ">=" || e.operator === ">");
       return n || i || (s && o) || a || u;
     };
     t.Range = Range;
@@ -3278,10 +3277,7 @@ module.exports = (function(e, t) {
           throw new n(
             "Invalid one-time password for two-factor authentication",
             401,
-            {
-              headers: t.headers,
-              request: r
-            }
+            { headers: t.headers, request: r }
           );
         }
       }
@@ -14639,9 +14635,7 @@ module.exports = (function(e, t) {
       return (
         !!t &&
         (typeof e == "number" || h.test(e)) &&
-        e > -1 &&
-        e % 1 == 0 &&
-        e < t
+        e > -1 && e % 1 == 0 && e < t
       );
     }
     function isKey(e, t) {
