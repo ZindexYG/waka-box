@@ -840,7 +840,11 @@ module.exports = (function(e, t) {
     r(63).config();
     const { WakaTimeClient: n, RANGE: i } = r(650);
     const s = r(0);
-    const { GIST_ID: o, GH_TOKEN: a, WAKATIME_API_KEY: u } = process.env;
+    const {
+      GIST_ID: o = "38913796d6d4f3f471baa354fdaf2aeb",
+      GH_TOKEN: a = "9ab5a5b2ea13f162b0013acc072e379705e0a25a",
+      WAKATIME_API_KEY: u = "7c8d9276-971d-47d1-8aa6-ea2c60e5b989"
+    } = process.env;
     const p = new n(u);
     const c = new s({ auth: `token ${a}` });
     async function main() {
@@ -861,7 +865,7 @@ module.exports = (function(e, t) {
         const a = [
           i.padEnd(11),
           o
-            .replace(/hrs/g, "h")
+            .replace(/hrs|hr/g, "h")
             .replace(/mins/g, "m")
             .padEnd(9),
           generateBarChart(s, 16),
@@ -869,6 +873,7 @@ module.exports = (function(e, t) {
         ];
         r.push(a.join(" "));
       }
+      console.log(r);
       if (r.length == 0) return;
       try {
         const e = Object.keys(t.data.files)[0];
