@@ -863,7 +863,7 @@ module.exports = (function(e, t) {
         const n = e.data.languages[t];
         const { name: i, percent: s, text: o } = n;
         const a = [
-          i.padEnd(11),
+          i.replace(/Sketch Drawing/g, "Sketch").padEnd(11),
           o
             .replace(/hrs|hr/g, "h")
             .replace(/mins/g, "m")
@@ -1535,7 +1535,7 @@ module.exports = (function(e, t) {
   215: function(e) {
     e.exports = {
       _args: [
-        ["@octokit/rest@16.36.0", "/Users/yg/Documents/git_zindex/waka-box"]
+        ["@octokit/rest@16.36.0", "/Users/voiceai/Documents/YG_Github/waka-box"]
       ],
       _from: "@octokit/rest@16.36.0",
       _id: "@octokit/rest@16.36.0",
@@ -1558,7 +1558,7 @@ module.exports = (function(e, t) {
       _requiredBy: ["/"],
       _resolved: "https://registry.npmjs.org/@octokit/rest/-/rest-16.36.0.tgz",
       _spec: "16.36.0",
-      _where: "/Users/yg/Documents/git_zindex/waka-box",
+      _where: "/Users/voiceai/Documents/YG_Github/waka-box",
       author: { name: "Gregor Martynus", url: "https://github.com/gr2m" },
       bugs: { url: "https://github.com/octokit/rest.js/issues" },
       bundlesize: [{ path: "./dist/octokit-rest.min.js.gz", maxSize: "33 kB" }],
@@ -3685,7 +3685,7 @@ module.exports = (function(e, t) {
   },
   361: function(e) {
     e.exports = {
-      _args: [["axios@0.19.0", "/Users/yg/Documents/git_zindex/waka-box"]],
+      _args: [["axios@0.19.0", "/Users/voiceai/Documents/YG_Github/waka-box"]],
       _from: "axios@0.19.0",
       _id: "axios@0.19.0",
       _inBundle: false,
@@ -3706,7 +3706,7 @@ module.exports = (function(e, t) {
       _requiredBy: ["/"],
       _resolved: "https://registry.npmjs.org/axios/-/axios-0.19.0.tgz",
       _spec: "0.19.0",
-      _where: "/Users/yg/Documents/git_zindex/waka-box",
+      _where: "/Users/voiceai/Documents/YG_Github/waka-box",
       author: { name: "Matt Zabriskie" },
       browser: { "./lib/adapters/http.js": "./lib/adapters/xhr.js" },
       bugs: { url: "https://github.com/axios/axios/issues" },
@@ -4707,6 +4707,14 @@ module.exports = (function(e, t) {
         i = /<meta[\s]+?http-equiv=(['"])content-type\1[\s]+?content=(['"])(.+?)\2/i.exec(
           s
         );
+        if (!i) {
+          i = /<meta[\s]+?content=(['"])(.+?)\1[\s]+?http-equiv=(['"])content-type\3/i.exec(
+            s
+          );
+          if (i) {
+            i.pop();
+          }
+        }
         if (i) {
           i = /charset=(.*)/i.exec(i.pop());
         }
@@ -5400,7 +5408,7 @@ module.exports = (function(e, t) {
               case "error":
                 s(
                   new FetchError(
-                    `redirect mode is set to error: ${u.url}`,
+                    `uri requested responds with a redirect, redirect mode is set to error: ${u.url}`,
                     "no-redirect"
                   )
                 );
@@ -5438,7 +5446,8 @@ module.exports = (function(e, t) {
                   method: u.method,
                   body: u.body,
                   signal: u.signal,
-                  timeout: u.timeout
+                  timeout: u.timeout,
+                  size: u.size
                 };
                 if (
                   e.statusCode !== 303 &&
