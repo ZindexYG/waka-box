@@ -31,7 +31,7 @@ async function updateGist(stats) {
     const { name, percent, text: time } = data;
 
     const line = [
-      name.padEnd(11),
+      name.replace(/Sketch Drawing/g,'Sketch').padEnd(11),
       time
         .replace(/hrs|hr/g, "h")
         .replace(/mins/g, "m")
