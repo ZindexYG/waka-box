@@ -5,7 +5,8 @@
   "author": "Matan Kushner <hello@matchai.me>",
   "license": "ISC",
   "scripts": {
-    "build": "ncc build index.js --out dist --minify"
+    "build": "ncc build index.js --out dist --minify",
+    "start": "node index.js"
   },
   "dependencies": {
     "@octokit/rest": "16.36.0",
